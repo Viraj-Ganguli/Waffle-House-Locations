@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Waffle House</title>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Waffle House Location</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+<table style="margin-left:auto; margin-right:auto">
+<tr>
+	<td colspan="2">
+		<h2>Waffle House Store - Guess the Location!</h2>
+		<a href=/><< back to all Waffle Houses</a>
+			<a href="/?random=true"><button>Another random Waffle House!</button></a>
+	</td>
+</tr>
+	<tr><td width="600">
+		<iframe
+		width="600"
+		height="450"
+		style="border:0"
+		frameborder="0"
+		loading="lazy"
+		allowfullscreen=""
+		src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBR5RY-Y3sGcCacuN8Xy1auBDne78xjQVo&location={{location[0]}},{{location[1]}}&fov=35&language=ja">
+	</iframe>
+	</td>
+	<td style="padding-left:30px; text-align:left; width:240px">
+		<script>
+		function show() {
+		  var x = document.getElementById("show");
+		  if (x.style.display === "none") {
+		    x.style.display = "block";
+		  } else {
+		    x.style.display = "none";
+		  }
+		}
+		</script>
+		<button onclick="show()">Reveal Location</button>
+		<div id="show" style="display:none">
+		<b>Address:</b> 
+		<a target="_blank" href="http://maps.google.com/?ll={{location[0]}},{{location[1]}}">{{ location[2]}}</a><br />
+		<b>City:</b> {{ location[3]}}<br />
+		<b>State:</b> {{ location[4]}}<br />
+		</div>
+		</td></tr>
+		
+		</table>
+
+            </div>
+
+            </div>
+        </div>
+    </body>
+</html>

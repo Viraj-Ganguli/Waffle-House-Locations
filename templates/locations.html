@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Waffle House</title>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Waffle House Locations</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>All Locations in State {{ request.args.get("state") }}</h2>
+							<a href=/><< back to all states</a>
+                <table>
+                    <thead>
+                        <tr>
+							<th>Store Name</th>
+							<th>Store Number</th>
+							<th>Store Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- TODO: Loop through the database entries to display them in this table -->
+						{% for l in locations %}
+						<tr>
+							<td>{{ l[1] }}</td>
+							<td>{{ l[0] }}</td>
+							<td> <a href=/?storeNum={{ l[0] }}>{{ l[2] }}</a> </td>
+							
+						</tr>
+						{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
